@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNova - Research</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+        nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(20, 25, 35, 0.9);
+      padding: 1rem 2rem;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 1s ease forwards;
+    }
+    nav a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #00d1ff;
+      transition: width 0.3s;
+    }
+    nav a:hover {
+      color: #00d1ff;
+      transform: translateY(-2px);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .theme-switch label {
+      cursor: pointer;
+      font-size: 0.9rem;
+      background: #1e293b;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.3s;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .theme-switch label:hover {
+      background: #334155;
+    }
+
+    .toggle-icon {
+      width: 14px;
+      height: 14px;
+      background: #38bdf8;
+      border-radius: 50%;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+
+        /* Theme switch */
+    .theme-switch {
+      margin-left: auto;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .toggle-icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: #ccc;
+      border-radius: 50%;
+      margin-right: 6px;
+      transition: background 0.3s;
+    }
+    #theme-toggle:checked ~ nav .toggle-icon {
+      background: #ffd93b;
+    }
+    #theme-toggle:checked ~ nav {
+      background: rgba(245, 245, 245, 0.9);
+    }
+    #theme-toggle:checked ~ nav a {
+      color: #222;
+    }
+    #theme-toggle:checked ~ .hero,
+    #theme-toggle:checked ~ .tech-showcase,
+    #theme-toggle:checked ~ footer {
+      background: #fff;
+      color: #222;
+    }
+    
+    /* ===== Hero Styling ===== */
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      top: -100%;
+      left: -100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      animation: heroGlow 12s linear infinite;
+    }
+    @keyframes heroGlow {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(20%, 20%); }
+      100% { transform: translate(0, 0); }
+    }
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .hero-description {
+      font-size: 1rem;
+      margin-top: 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* ===== Timeline Styling ===== */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: var(--accent, #2575fc);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem;
+      background: var(--card-bg, #fff);
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      animation: fadeUp 1s ease forwards;
+      opacity: 0;
+    }
+    .timeline-item span {
+      font-weight: bold;
+      color: var(--accent, #2575fc);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      transform: translateX(-60%);
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      transform: translateX(10%);
+    }
+    .timeline-item:hover {
+      transform: scale(1.05);
+      background: var(--accent, #2575fc);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <input type="checkbox" id="theme-toggle" hidden>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="technologies.html">Technologies</a>
+    <a href="research.html">Research</a>
+    <a href="future.html">Future Vision</a>
+    <a href="team.html">Team</a>
+    <a href="blog.html">Blog</a>
+    <div class="theme-switch">
+      <label for="theme-toggle">
+        <span class="toggle-icon"></span> Theme
+      </label>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <p class="hero-subtitle">Innovation Studies</p>
+      <h1 class="hero-title">Research & Case Studies</h1>
+      <p class="hero-description">Explore projects and futuristic predictions shaping the next era of technology.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Future Vision</span>
+        <h2 class="section-title">Tech Timeline</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><span>2025</span> Rise of AI copilots and autonomous systems.</div>
+        <div class="timeline-item"><span>2030</span> Quantum computing achieves commercial breakthroughs.</div>
+        <div class="timeline-item"><span>2040</span> Widespread genetic engineering for healthcare.</div>
+        <div class="timeline-item"><span>2050</span> Permanent human settlement on Mars.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+    <div class="footer-copy">© 2025 TechNova. All rights reserved.</div>
+  </footer>
+</body>
+</html>

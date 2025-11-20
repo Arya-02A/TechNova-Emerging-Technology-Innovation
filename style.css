@@ -1,0 +1,121 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  color: #eee;
+  line-height: 1.6;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ===== Light Mode (Toggle Active) ===== */
+#theme-toggle:checked ~ * body {
+  background: #f4f4f4;
+  color: #222;
+}
+
+#theme-toggle:checked ~ * nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid #0077ff;
+}
+
+#theme-toggle:checked ~ * nav a {
+  color: #0077ff;
+}
+
+#theme-toggle:checked ~ * h1,
+#theme-toggle:checked ~ * h2 {
+  color: #0077ff;
+}
+
+#theme-toggle:checked ~ * .card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:checked ~ * footer {
+  background: #ddd;
+  border-top: 2px solid #0077ff;
+}
+
+#theme-toggle:checked ~ * footer p {
+  color: #333;
+}
+
+/* ===== Theme Switch ===== */
+.theme-switch {
+  margin-left: auto;
+}
+
+.theme-switch label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #00ffe5;
+  font-weight: 600;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: yellow;
+  transition: background 0.4s;
+}
+
+#theme-toggle:checked + label .toggle-icon {
+  background: #333;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #00ffe5;
+  margin-bottom: 20px;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 15px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0px 4px 20px rgba(0, 255, 229, 0.3);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #0d0d0d;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #00ffe5;
+  margin-top: 50px;
+}
+
+footer p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
